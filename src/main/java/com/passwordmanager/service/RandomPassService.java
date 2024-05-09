@@ -1,10 +1,8 @@
-package com.passwordgenerator.service;
+package com.passwordmanager.service;
 
 import com.google.common.hash.Hashing;
-import com.passwordgenerator.model.PasswordManager;
-import com.passwordgenerator.model.Passwords;
-import com.passwordgenerator.repository.PassRepository;
-import com.passwordgenerator.repository.RandomPasswordsRepository;
+import com.passwordmanager.model.PasswordManager;
+import com.passwordmanager.repository.PassManagerRepository;
 import org.passay.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,22 +15,23 @@ import java.util.*;
 @Service
 public class RandomPassService {
     @Autowired
-    PassRepository repository;
-    @Autowired
-    RandomPasswordsRepository passwordsRepository;
+    PassManagerRepository repository;
+
     public ResponseEntity<String> generateRandomPass(String username, String password) {
         Optional<PasswordManager> findUser = repository.findByUsername(username);
         if (findUser.isPresent() &&
                 findUser.get().getMainPassword().equals(Hashing.sha256()
                 .hashString(password, StandardCharsets.UTF_8)
                 .toString())) {
-            List<Passwords> passwords = new ArrayList<>();
+
             String generatePassword = getRandomPass();
-            Passwords randomPass = new Passwords();
-            randomPass.setPassword(generatePassword);
-           passwords.add(randomPass);
-            findUser.get().setPasswords(passwords);
-          passwordsRepository.save(randomPass);
+            PasswordManager passwordManager = new PasswordManager();
+           List<String> currentPasswords = findUser.get().getPasswords();
+
+           currentPasswords.add(generatePassword);
+
+            passwordManager.setPasswords(currentPasswords);
+
 
             return new ResponseEntity<>("generated password is " + generatePassword, HttpStatus.CREATED);
         }
