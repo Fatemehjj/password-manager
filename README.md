@@ -61,7 +61,7 @@ Inputs are like the previous API.
 Clone the project
 
 ```bash
-  git clone https://github.com/Fatemehjj/password-generator.git
+  git clone https://github.com/Fatemehjj/password-manager.git
 ```
 
 Go to the project directory
