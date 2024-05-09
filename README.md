@@ -6,9 +6,9 @@ generate secure passwords and maintain them securely
 
 ## Features
 
-- Generate random and secure passwords
+- Generate random and secure passwords(using passy library)
 - add user pass manager account
-- encode user account password to sha256 
+- encode user account password to sha256 (using guava library)
 - get all passwords
 
 
