@@ -25,9 +25,7 @@ public class GetAllPassService {
         List<String> updatedPass = new ArrayList<>();
        wrapper.setUsername(findUser.get().getUsername());
 
-       for (String getPass : getPasswords){
-           updatedPass.add(getPass);
-       }
+        updatedPass.addAll(getPasswords);
 
        wrapper.setPasswords(updatedPass);
        return new ResponseEntity<>(wrapper, HttpStatus.OK);
