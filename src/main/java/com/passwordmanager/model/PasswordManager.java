@@ -22,9 +22,9 @@ public class PasswordManager {
     private long id;
     @ElementCollection
     private List<String> passwords;
-    //@Size(min = 3, max = 20)
+    @Size(min = 3, max = 20)
     private String username;
     @Column(name = "main_password")
-    //@Size(min = 8, max = 18)
+    @Size(min = 8, max = 18)
     private String mainPassword;
 }
