@@ -68,6 +68,8 @@ Go to the project directory
 
 make sure maven installed and correctly added to your environment variable
 
+also make sure to configure your database in application.properties
+
 ```bash
   mvn spring-boot:run
 ```
