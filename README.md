@@ -6,7 +6,7 @@ generate secure passwords and maintain them securely
 
 ## Features
 
-- Generate random and secure passwords(using passy library)
+- Generate random and secure passwords(using passay library)
 - add user pass manager account
 - encode user account password to sha256 (using guava library)
 - get all passwords
@@ -51,7 +51,7 @@ Inputs are like the previous API.
 Inputs are like the previous API.
 
 
-## Documentation
+## Documentation & UI
 
 [Documentation](http://localhost:8080/password-manager/swagger.html)
 
